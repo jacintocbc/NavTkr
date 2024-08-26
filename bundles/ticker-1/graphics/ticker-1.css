@@ -8,6 +8,11 @@
 	src: url('../shared/fonts/RadioCanada-Italic-Variable.ttf') format('truetype');
 }
 
+@font-face {
+	font-family: 'Para Movement';
+	src: url('../shared/fonts/ParaMovement.ttf') format('truetype');
+}
+
 body {
 	/* background: url('../shared/assets/mountain.jpg');
 	background-size: 170%;
@@ -64,6 +69,12 @@ body {
 }
 
 /* Sponsor */
+.sponsor-container {
+	position: absolute;
+	top: 5px;
+	right: 110px;
+}
+
 .sponsor-image {
 	max-height: 100px;
 	height: 100px;
@@ -71,6 +82,8 @@ body {
 	position: absolute;
 	top: -20px;
 	right: 0px;
+	transform: translateY(100%);
+	animation: slide-up 0.3s ease-in 0.3s forwards;
 }
 
 /* Group */
@@ -181,6 +194,10 @@ body {
 	background: #FFEAB0;
 }
 
+.ignite-dot {
+	background: #a68349;
+}
+
 @keyframes blink-on {
 
 	0%,
@@ -221,6 +238,11 @@ body {
 	color: white;
 	font-size: 34px;
 	/* animation: text-slide-right 0.3s ease-out forwards 0.5s; */
+}
+
+.paralink {
+	font-family: 'Para Movement', sans-serif;
+	display: contents;
 }
 
 @keyframes text-slide-right {

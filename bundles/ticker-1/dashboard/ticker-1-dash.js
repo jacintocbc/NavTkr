@@ -157,7 +157,7 @@ function addTableRow(item, isAddedFromDropdown) {
   const typeCell = document.createElement('td');
   const select = document.createElement('select');
   select.className = 'type-cell';
-  const options = ['Results', 'Breaking', 'Promo', 'News', 'Free'];
+  const options = ['Results', 'Breaking', 'Promo', 'News', 'Free', 'Ignite'];
   options.forEach(opt => {
     const option = document.createElement('option');
     option.value = opt;
@@ -415,7 +415,7 @@ document.addEventListener('DOMContentLoaded', function () {
       option.textContent = file;
       dropdown.appendChild(option);
     });
-    dropdown.value = sponsorFilename ? sponsorFilename : 'paris-2024.png';
+    dropdown.value = sponsorFilename ? sponsorFilename : 'sportchek.png';
   }
 
   // Update Image with selection
@@ -511,7 +511,7 @@ function saveSponsorDetails() {
   sponsorImgSrc = document.querySelector('.sponsor-image').src;
   sponsorImgHeight = `${imageHeight.value}px`;
   sponsorImgX = `${imageX.value}px`;
-  sponsorImgY = `${imageY.value}px`
+  sponsorImgY = `${imageY.value}px`;
   sponsorDetails = {
     imgHeight: sponsorImgHeight,
     imgSrc: sponsorImgSrc,
@@ -580,13 +580,15 @@ function loadItems() {
   } else {
     // Default values if nothing is in localStorage
     tickerItems = [
+      { type: 'Ignite', message: 'Support Canadian Paralympians' },
+      { type: 'Ignite', message: 'Buy a $25 virtual seat at *URL and help fill our stadium with pride' },
+      { type: 'Ignite', message: 'Help raise $1M for our Paralympic athletes' },
+      { type: 'Ignite', message: 'join IGNITE the Light today at *URL' },
       { type: 'Results', message: '100 Meter World Record Holder' },
-      { type: 'Results', message: '200 Meter World Record Holder' },
       { type: 'News', message: 'There is news from earlier today' },
       { type: 'Breaking', message: 'New Marathon Record' },
-      { type: 'Breaking', message: 'Canadian swimmers set World Record' },
       { type: 'Promo', message: 'Upcoming: World Championship' },
-      { type: 'Free', message: 'Tension as Olympics approach' },
+      { type: 'Free', message: 'Tension as Paralympics approach' },
     ];
     tickerItems.forEach((item) => {
       item.visible = true;

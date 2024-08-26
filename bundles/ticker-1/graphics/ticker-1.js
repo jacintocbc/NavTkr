@@ -1,31 +1,33 @@
 document.addEventListener('DOMContentLoaded', () => {
   let groupItems = [
+    { type: 'Ignite', message: 'Support Canadian Paralympians' },
+    { type: 'Ignite', message: 'Buy a $25 virtual seat at *URL and help fill our stadium with pride' },
+    { type: 'Ignite', message: 'Help raise $1M for our Paralympic athletes' },
+    { type: 'Ignite', message: 'join IGNITE the Light today at *URL' },
     { type: 'Results', message: '100 Meter World Record Holder' },
-    { type: 'Results', message: '200 Meter World Record Holder' },
     { type: 'News', message: 'There is news from earlier today' },
     { type: 'Breaking', message: 'New Marathon Record' },
-    { type: 'Breaking', message: 'Canadian swimmers set World Record' },
     { type: 'Promo', message: 'Upcoming: World Championship' },
-    { type: 'Free', message: 'Tension as Olympics approach' },
+    { type: 'Free', message: 'Tension as Paralympics approach' },
   ];
 
   // Paris 2024 Logo
-  let sponsorDetails = {
-    imgHeight: '100px',
-    imgSrc: '../shared/assets/sponsor/paris-2024.png',
-    imgX: '0px',
-    imgY: '-20px',
-    isDisplay: false
-  }
-
-  // Sportchek Logo
   // let sponsorDetails = {
-  //   imgHeight: '51px',
-  //   imgSrc: '../shared/assets/sponsor/sportchek.png',
-  //   imgX: '126px',
-  //   imgY: '9px',
+  //   imgHeight: '100px',
+  //   imgSrc: '../shared/assets/sponsor/paris-2024.png',
+  //   imgX: '0px',
+  //   imgY: '-20px',
   //   isDisplay: false
   // }
+
+  // Sportchek Logo
+  let sponsorDetails = {
+    imgHeight: '47px',
+    imgSrc: '../shared/assets/sponsor/sportchek.png',
+    imgX: '3px',
+    imgY: '66px',
+    isDisplay: false
+  }
 
   let currentGroupIndex = 0;
   let refreshInterval = 5000;
@@ -38,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     group.id = `group-${index}`;
 
     // Create Header
-    if (item.type !== 'Free') {
+    if (item.type !== 'Free' && item.type !== 'Ignite') {
       const headerText = document.createElement('div');
       headerText.classList.add('ticker-header-text', `${item.type.toLowerCase()}-header-text`);
       // Set the text content based on the group type
@@ -68,9 +70,41 @@ document.addEventListener('DOMContentLoaded', () => {
             `<div class="medal bronze"><span>B</span></div>`);
         replacedMessage = replacedMessage.replace(/\*CAN/g, 
           `<div class="flag"><img src="../shared/assets/CAN.jpg" alt="Canada Flag"></div>`);
+        replacedMessage = replacedMessage.replace(/\*URL/g,
+          `<span class="paralink">paralympic.ca/ignite</span>`
+        )
 
     messageText.innerHTML = replacedMessage;
     group.appendChild(messageText);
+
+    if (item.type == 'Ignite') {
+      const igniteContainer = document.createElement('div');
+      igniteContainer.className = 'sponsor-container';
+      const sponsorImage = document.createElement('img');
+      sponsorImage.className = 'sponsor-image';
+      sponsorImage.alt = 'ignite image';
+      sponsorImage.src = '../shared/assets/sponsor/ignite-the-light.png';
+      sponsorImage.style.height = '70px';
+      sponsorImage.style.top = '-8px';
+      sponsorImage.style.right = '8px';
+      igniteContainer.appendChild(sponsorImage);
+      group.appendChild(igniteContainer);
+    } else {
+      if (sponsorDetails.isDisplay) {
+        const sponsorContainer = document.createElement('div');
+        sponsorContainer.className = 'sponsor-container';
+        sponsorContainer.style.display = sponsorDetails.isDisplay ? 'block' : 'none';
+        const sponsorImage = document.createElement('img');
+        sponsorImage.className = 'sponsor-image';
+        sponsorImage.alt = 'sponsor image';
+        sponsorImage.src = sponsorDetails.imgSrc;
+        sponsorImage.style.height = sponsorDetails.imgHeight;
+        sponsorImage.style.top = sponsorDetails.imgY;
+        sponsorImage.style.right = sponsorDetails.imgX;
+        sponsorContainer.appendChild(sponsorImage);
+        group.appendChild(sponsorContainer);
+      }
+    }
 
     return group;
   }
@@ -87,21 +121,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       tickerMain.appendChild(groupElement);
     });
-    // Add Sponsor Image if loaded
-    if (sponsorDetails.isDisplay) {
-      const sponsorContainer = document.createElement('div');
-      sponsorContainer.className = 'sponsor-container';
-      sponsorContainer.style.display = sponsorDetails.isDisplay ? 'block' : 'none';
-      const sponsorImage = document.createElement('img');
-      sponsorImage.className = 'sponsor-image';
-      sponsorImage.alt = 'sponsor image';
-      sponsorImage.src = sponsorDetails.imgSrc;
-      sponsorImage.style.height = sponsorDetails.imgHeight;
-      sponsorImage.style.top = sponsorDetails.imgY;
-      sponsorImage.style.right = sponsorDetails.imgX;
-      sponsorContainer.appendChild(sponsorImage);
-      tickerMain.appendChild(sponsorContainer);
-    }
   }
 
   // Animate In Helper

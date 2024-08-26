@@ -31,11 +31,11 @@ body {
 
 .sponsor-image {
   max-height: 100px;
-  height: 100px;
+  height: 47px;
   object-fit: cover;
   position: absolute;
-  top: -20px;
-  right: 0px;
+  top: 66px;
+  right: 3px;
 }
 
 /* Dropdown */
@@ -46,14 +46,17 @@ body {
 }
 
 select {
-  width: 180px;
+  width: 100px;
   height: 30px;
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #f9f9f9;
   font-size: 16px;
-
   margin-right: 10px;
+}
+
+#sponsor-dropdown {
+  width: 180px;
 }
 
 option {
