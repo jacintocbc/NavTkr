@@ -1215,9 +1215,9 @@ function addNewPromoFromDropdown() {
     case 'option1': // Athlete
       newItem = {
         type: 'Athlete',
-        img: '../shared/assets/athletes/1_default.jpg',
-        height: '196px',
-        objectPosition: '-9px -17px',
+        img: '../shared/assets/athletes/1_default.png',
+        height: '216px',
+        objectPosition: '-47px 3px',
         title: 'New Athlete',
         subtitle: 'Sport',
         date: 'Today',
@@ -1227,7 +1227,7 @@ function addNewPromoFromDropdown() {
     case 'option2': // Picto
       newItem = {
         type: 'Picto',
-        img: '../shared/assets/pictos/archery.png',
+        img: '../shared/assets/pictos/P24_Picto_BlindFootball.png',
         height: '196px',
         objectPosition: '-10px -2px',
         title: 'New Picto',
@@ -1239,7 +1239,7 @@ function addNewPromoFromDropdown() {
     case 'option3': // Continue
       newItem = {
         type: 'Continue',
-        img: '../shared/assets/pictos/archery.png',
+        img: '../shared/assets/pictos/P24_Picto_ParaArchery.png',
         height: '196px',
         objectPosition: '-10px -2px',
         title: 'Sport',
@@ -1418,9 +1418,9 @@ function loadPromoItems() {
     promoItems = [
       {
         type: 'Athlete',
-        img: '../shared/assets/athletes/1_default.jpg',
-        height: '196px',
-        objectPosition: '-9px -17px',
+        img: '../shared/assets/athletes/1_default.png',
+        height: '216px',
+        objectPosition: '-47px 3px',
         title: 'New Athlete',
         subtitle: 'Sport',
         date: 'Today',
@@ -1428,20 +1428,20 @@ function loadPromoItems() {
       },
       {
         type: 'Picto',
-        img: '../shared/assets/pictos/basketball.png',
+        img: '../shared/assets/pictos/P24_Picto_ParaArchery.png',
         height: '196px',
         objectPosition: '-10px -2px',
-        title: 'Jamal Murray',
-        subtitle: 'Basketball',
+        title: 'New Athlete',
+        subtitle: 'Para Archery',
         date: 'Coming Up',
         footer: 'CBC.CA/PARIS2024'
       },
       {
         type: 'Continue',
-        img: '../shared/assets/pictos/rowing.png',
+        img: '../shared/assets/pictos/P24_Picto_BlindFootball.png',
         height: '196px',
         objectPosition: '-10px -2px',
-        title: 'Rowing',
+        title: 'Blind Football',
         subtitle: 'Continue Watching On',
         date: 'Gem',
         footer: 'CBC.CA/PARIS2024'
