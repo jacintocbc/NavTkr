@@ -398,6 +398,14 @@ body {
 	/* animation: fadeInUpText 0.3s ease-in-out forwards 1.75s; */
 }
 
+.squeeze-promo-title {
+	font-size: 26px;
+}
+
+.squeeze-promo-text {
+	font-size: 23px;
+}
+
 @keyframes fadeInUpText {
 	from {
 		opacity: 0;
