@@ -649,6 +649,9 @@ function createResultItem(item, index) {
   } else if (!item.gender) {
     headerText.classList.add('header-text-no-corner');
   }
+  if (item.squeeze === true || item.squeeze === false) { 
+    if (item.squeeze === true) headerText.classList.add('result-squeeze'); 
+  } 
   headerText.textContent = item.title;
   navHeaderAlt.appendChild(headerText);
   navHeader.appendChild(navHeaderAlt);

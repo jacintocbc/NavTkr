@@ -1536,6 +1536,9 @@ function addResultTableRow(item, table, isAddedFromDropdown) {
 
   const headerText = document.createElement('span');
   headerText.className = item.type === 'StandingsAlt' ? 'header-text' : 'header-text header-text-results';
+  if (item.squeeze === true || item.squeeze === false) { 
+    if (item.squeeze === true) headerText.classList.add('result-squeeze'); 
+  } 
   headerText.contentEditable = 'true';
   headerText.textContent = item.title;
 
@@ -1666,12 +1669,20 @@ function addResultTableRow(item, table, isAddedFromDropdown) {
   navWrapper.style.opacity = item.visible ? '1' : '0.5';
   visibilityIcon.onclick = () => toggleResultVisibility(visibilityIcon);
 
+    // Squeeze Font 
+    const squeezeIcon = document.createElement('i'); 
+    if (item.squeeze === true || item.squeeze === false) squeezeIcon.className = item.squeeze ? 'fa fa-compress squeeze-icon' : 'fa fa-expand squeeze-icon'; 
+    if (item.squeeze === true || item.squeeze === false) squeezeIcon.title = item.squeeze ? 'Click to Expand Title' : 'Click to Squeeze Title'; 
+    squeezeIcon.style.cursor = 'pointer'; 
+    squeezeIcon.onclick = () => toggleFontSqueezeResult(squeezeIcon); 
+
   // Drag and Drop
   const barsIcon = document.createElement('i');
   barsIcon.className = 'fa fa-bars';
 
   settings.appendChild(trashIcon);
   settings.appendChild(visibilityIcon);
+  if (item.squeeze === true || item.squeeze === false) settings.appendChild(squeezeIcon);
   settings.appendChild(barsIcon);
 
   rowWrapper.appendChild(settings);
@@ -1746,6 +1757,7 @@ function addNewResultFromDropdown() {
   }
 
   newItem.visible = true;
+  newItem.squeeze = false;
   resultItems.unshift(newItem);
   const table = document.getElementById('results-table');
   addResultTableRow(newItem, table, true);
@@ -1778,6 +1790,34 @@ function toggleResultVisibility(icon) {
       sendableResultItems.splice(index, 0, item);
     }
   }
+}
+
+// Toggle Font Squeeze 
+function toggleFontSqueezeResult(icon) { 
+  const tr = icon.closest('tr'); 
+  const table = tr.closest('table'); 
+  const rows = Array.from(table.querySelectorAll('tr')); 
+  const index = rows.indexOf(tr); 
+  const navWrapper = tr.querySelector('.nav-wrapper'); 
+  const headerTitle = navWrapper.querySelector('.header-text');
+  const item = resultItems[index]; 
+ 
+  if (item.squeeze === true || item.squeeze === false) { 
+    item.squeeze = !item.squeeze; 
+    if (!item.squeeze) { 
+      icon.classList.remove('fa-compress'); 
+      icon.classList.add('fa-expand'); 
+      icon.title = 'Click to Squeeze Title'; 
+      headerTitle.classList.remove('result-squeeze'); 
+      item.squeeze = false; 
+    } else { 
+      icon.classList.remove('fa-expand'); 
+      icon.classList.add('fa-compress'); 
+      icon.title = 'Click to Expand Title'; 
+      headerTitle.classList.add('result-squeeze'); 
+      item.squeeze = true; 
+    }
+  } 
 }
 
 // Add Drag and Drop Handlers
@@ -2023,6 +2063,7 @@ function loadResultItems() {
     ];
     resultItems.forEach((item) => {
       item.visible = true;
+      item.squeeze = false;
     })
     sendableResultItems = [...resultItems];
     saveResultItems();

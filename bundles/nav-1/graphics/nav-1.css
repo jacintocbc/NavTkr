@@ -547,6 +547,12 @@ body {
 	letter-spacing: 0.25px;
 }
 
+.result-squeeze {
+	font-size: 34px;
+    top: 7.5px;
+    letter-spacing: -1px;
+}
+
 .without-footer-results {
 	height: 136px;
 	padding: 0 !important;
