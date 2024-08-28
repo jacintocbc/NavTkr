@@ -339,7 +339,9 @@ function createPromoItem(item, index) {
   image.src = item.img;
   image.style.height = item.height; // Set the height
   image.style.objectPosition = item.objectPosition; // Set the object-position
-  if (item.type !== 'Athlete') {
+  if (item.type == 'Athlete') {
+    image.style.background = '#e7e7e7';
+  } else {
     image.style.background = 'linear-gradient(to bottom right, #ffebb4, #ffebb4 42%, #71eda3, #71eda3)';
   }
   imageContainer.appendChild(image);
