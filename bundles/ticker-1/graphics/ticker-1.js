@@ -77,36 +77,24 @@ document.addEventListener('DOMContentLoaded', () => {
     messageText.innerHTML = replacedMessage;
     group.appendChild(messageText);
 
-    if (item.type == 'Ignite') {
-      const igniteContainer = document.createElement('div');
-      igniteContainer.className = 'sponsor-container';
-      const sponsorImage = document.createElement('img');
-      sponsorImage.className = 'sponsor-image';
+    return group;
+  }
+
+  function changeSponsorImage(isIgnite) {
+    const sponsorImage = document.querySelector('.sponsor-image');
+    if (isIgnite) {
       sponsorImage.alt = 'ignite image';
       sponsorImage.src = '../shared/assets/sponsor/ignite-the-light.png';
       sponsorImage.style.height = '70px';
       sponsorImage.style.top = '-8px';
       sponsorImage.style.right = '8px';
-      igniteContainer.appendChild(sponsorImage);
-      group.appendChild(igniteContainer);
     } else {
-      if (sponsorDetails.isDisplay) {
-        const sponsorContainer = document.createElement('div');
-        sponsorContainer.className = 'sponsor-container';
-        sponsorContainer.style.display = sponsorDetails.isDisplay ? 'block' : 'none';
-        const sponsorImage = document.createElement('img');
-        sponsorImage.className = 'sponsor-image';
-        sponsorImage.alt = 'sponsor image';
-        sponsorImage.src = sponsorDetails.imgSrc;
-        sponsorImage.style.height = sponsorDetails.imgHeight;
-        sponsorImage.style.top = sponsorDetails.imgY;
-        sponsorImage.style.right = sponsorDetails.imgX;
-        sponsorContainer.appendChild(sponsorImage);
-        group.appendChild(sponsorContainer);
-      }
+      sponsorImage.alt = 'sponsor image';
+      sponsorImage.src = sponsorDetails.imgSrc;
+      sponsorImage.style.height = sponsorDetails.imgHeight;
+      sponsorImage.style.top = sponsorDetails.imgY;
+      sponsorImage.style.right = sponsorDetails.imgX;
     }
-
-    return group;
   }
 
   // Create and append HTML elements
@@ -121,7 +109,24 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       tickerMain.appendChild(groupElement);
     });
+    // Add Sponsor Image if loaded 
+    if (sponsorDetails.isDisplay) { 
+      const sponsorContainer = document.createElement('div'); 
+      sponsorContainer.className = 'sponsor-container'; 
+      sponsorContainer.style.display = sponsorDetails.isDisplay ? 'block' : 'none'; 
+      const sponsorImage = document.createElement('img'); 
+      sponsorImage.className = 'sponsor-image'; 
+      sponsorImage.alt = 'sponsor image'; 
+      sponsorImage.src = sponsorDetails.imgSrc; 
+      sponsorImage.style.height = sponsorDetails.imgHeight; 
+      sponsorImage.style.top = sponsorDetails.imgY; 
+      sponsorImage.style.right = sponsorDetails.imgX; 
+      sponsorContainer.appendChild(sponsorImage); 
+      tickerMain.appendChild(sponsorContainer); 
+    }  
   }
+
+  let containsIgnite = false;
 
   // Animate In Helper
   function animateIn() {
@@ -141,6 +146,8 @@ document.addEventListener('DOMContentLoaded', () => {
     currentGroupIndex = 0;
     const currentGroup = document.getElementById(`group-${currentGroupIndex}`);
     if (currentGroup) {
+      containsIgnite = currentGroup.classList.contains('ignite-group');
+      changeSponsorImage(containsIgnite);
       currentGroup.style.display = 'flex';
       currentGroup.classList.remove('animate-group-out');
       currentGroup.classList.add('animate-group-in');
@@ -206,6 +213,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (nextGroup) {
         setTimeout(() => {
           nextGroup.style.display = 'flex';
+          containsIgnite = nextGroup.classList.contains('ignite-group');
+          changeSponsorImage(containsIgnite);
           nextGroup.classList.remove('animate-group-out');
           nextGroup.classList.add('animate-group-in');
         }, 200);
