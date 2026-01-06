@@ -17,7 +17,7 @@ let navbarItems = [
     time1: '11:30',
     time2: 'AM',
     time3: 'ET',
-    footer: 'CBC.CA/PARIS2024'
+    footer: 'CBC.CA/MILANOCORTINA2026'
   },
   {
     img: 'tsn-logo.png',
@@ -25,7 +25,7 @@ let navbarItems = [
     time1: '2:30',
     time2: 'PM',
     time3: 'ET',
-    footer: 'CBC.CA/PARIS2024'
+    footer: 'CBC.CA/MILANOCORTINA2026'
   },
   {
     img: 'sn-logo.png',
@@ -33,7 +33,7 @@ let navbarItems = [
     time1: '3:30',
     time2: 'PM',
     time3: 'ET',
-    footer: 'CBC.CA/PARIS2024'
+    footer: 'CBC.CA/MILANOCORTINA2026'
   },
   {
     img: 'sn1-logo.png',
@@ -41,7 +41,7 @@ let navbarItems = [
     time1: '5:30',
     time2: 'PM',
     time3: 'ET',
-    footer: 'CBC.CA/PARIS2024'
+    footer: 'CBC.CA/MILANOCORTINA2026'
   },
   {
     img: 'ici-tele-logo.png',
@@ -49,7 +49,7 @@ let navbarItems = [
     time1: '11:30',
     time2: 'AM',
     time3: 'ET',
-    footer: 'CBC.CA/PARIS2024'
+    footer: 'CBC.CA/MILANOCORTINA2026'
   },
   {
     img: 'rds-logo.png',
@@ -57,7 +57,7 @@ let navbarItems = [
     time1: '2:30',
     time2: 'PM',
     time3: 'ET',
-    footer: 'CBC.CA/PARIS2024'
+    footer: 'CBC.CA/MILANOCORTINA2026'
   },
   {
     img: 'rds2-logo.png',
@@ -65,7 +65,7 @@ let navbarItems = [
     time1: '3:30',
     time2: 'PM',
     time3: 'ET',
-    footer: 'CBC.CA/PARIS2024'
+    footer: 'CBC.CA/MILANOCORTINA2026'
   }
 ];
 
@@ -297,7 +297,7 @@ let promoItems = [
     title: 'New Athlete',
     subtitle: 'Sport',
     date: 'Today',
-    footer: 'CBC.CA/PARIS2024'
+    footer: 'CBC.CA/MILANOCORTINA2026'
   },
   {
     type: 'Picto',
@@ -307,7 +307,7 @@ let promoItems = [
     title: 'Jamal Murray',
     subtitle: 'Basketball',
     date: 'Coming Up',
-    footer: 'CBC.CA/PARIS2024'
+    footer: 'CBC.CA/MILANOCORTINA2026'
   },
   {
     type: 'Continue',
@@ -317,7 +317,7 @@ let promoItems = [
     title: 'Rowing',
     subtitle: 'Continue Watching On',
     date: 'Gem',
-    footer: 'CBC.CA/PARIS2024'
+    footer: 'CBC.CA/MILANOCORTINA2026'
   }
 ];
 
@@ -537,7 +537,7 @@ let resultItems = [
     resultFlag4: '',
     resultName4: '',
     text: "",
-    footer: 'CBC.CA/PARIS2024'
+    footer: 'CBC.CA/MILANOCORTINA2026'
   },
   {
     type: 'Standings',
@@ -562,13 +562,13 @@ let resultItems = [
     type: 'Results',
     title: 'Results',
     text: "Pierce Lepage won Canada's First Medal of the Games",
-    footer: 'CBC.CA/PARIS2024'
+    footer: 'CBC.CA/MILANOCORTINA2026'
   },
   {
     type: 'Breaking',
     title: 'Breaking',
     text: "Adam Tambellini scores a hat-trick in men's hockey",
-    footer: 'CBC.CA/PARIS2024'
+    footer: 'CBC.CA/MILANOCORTINA2026'
   },
   {
     type: 'StandingsAlt',
@@ -587,7 +587,7 @@ let resultItems = [
     resultFlag4: '',
     resultName4: '',
     text: "",
-    footer: 'CBC.CA/PARIS2024'
+    footer: 'CBC.CA/MILANOCORTINA2026'
   },
   {
     type: 'Standings',

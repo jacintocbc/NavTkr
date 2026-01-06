@@ -235,7 +235,7 @@ body {
 	position: relative;
 	left: 9px;
 	top: -3px;
-	letter-spacing: 3.5px;
+	letter-spacing: 0px;
 	opacity: 0;
 	transform: translateX(15px);
 	/* animation: fadeInLeft .65s ease-out forwards 1.9s; */

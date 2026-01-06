@@ -578,7 +578,7 @@ function addNewNavbarFromDropdown() {
     time1: '12:00',
     time2: 'PM',
     time3: 'ET',
-    footer: 'CBC.CA/PARIS2024'
+    footer: 'CBC.CA/MILANOCORTINA2026'
   };
 
   newItem.visible = true;
@@ -766,7 +766,7 @@ function loadNavbarItems() {
         time1: '11:30',
         time2: 'AM',
         time3: 'ET',
-        footer: 'CBC.CA/PARIS2024'
+        footer: 'CBC.CA/MILANOCORTINA2026'
       },
       {
         img: 'tsn-logo.png',
@@ -774,7 +774,7 @@ function loadNavbarItems() {
         time1: '2:30',
         time2: 'PM',
         time3: 'ET',
-        footer: 'CBC.CA/PARIS2024'
+        footer: 'CBC.CA/MILANOCORTINA2026'
       },
       {
         img: 'sn-logo.png',
@@ -782,7 +782,7 @@ function loadNavbarItems() {
         time1: '3:30',
         time2: 'PM',
         time3: 'ET',
-        footer: 'CBC.CA/PARIS2024'
+        footer: 'CBC.CA/MILANOCORTINA2026'
       },
       {
         img: 'sn-1-logo.png',
@@ -790,7 +790,7 @@ function loadNavbarItems() {
         time1: '5:30',
         time2: 'PM',
         time3: 'ET',
-        footer: 'CBC.CA/PARIS2024'
+        footer: 'CBC.CA/MILANOCORTINA2026'
       }
     ];
     navbarItems.forEach((item) => {
@@ -1235,7 +1235,7 @@ function addNewPromoFromDropdown() {
         title: 'New Athlete',
         subtitle: 'Sport',
         date: 'Today',
-        footer: 'CBC.CA/PARIS2024'
+        footer: 'CBC.CA/MILANOCORTINA2026'
       };
       break;
     case 'option2': // Picto
@@ -1247,7 +1247,7 @@ function addNewPromoFromDropdown() {
         title: 'New Picto',
         subtitle: 'Event',
         date: 'Date',
-        footer: 'CBC.CA/PARIS2024'
+        footer: 'CBC.CA/MILANOCORTINA2026'
       };
       break;
     case 'option3': // Continue
@@ -1259,7 +1259,7 @@ function addNewPromoFromDropdown() {
         title: 'Sport',
         subtitle: 'Continue Watching On',
         date: 'Gem',
-        footer: 'CBC.CA/PARIS2024'
+        footer: 'CBC.CA/MILANOCORTINA2026'
       };
       break;
   }
@@ -1470,7 +1470,7 @@ function loadPromoItems() {
         title: 'New Athlete',
         subtitle: 'Sport',
         date: 'Today',
-        footer: 'CBC.CA/PARIS2024'
+        footer: 'CBC.CA/MILANOCORTINA2026'
       },
       {
         type: 'Picto',
@@ -1480,7 +1480,7 @@ function loadPromoItems() {
         title: 'New Athlete',
         subtitle: 'Para Archery',
         date: 'Coming Up',
-        footer: 'CBC.CA/PARIS2024'
+        footer: 'CBC.CA/MILANOCORTINA2026'
       },
       {
         type: 'Continue',
@@ -1490,7 +1490,7 @@ function loadPromoItems() {
         title: 'Blind Football',
         subtitle: 'Continue Watching On',
         date: 'Gem',
-        footer: 'CBC.CA/PARIS2024'
+        footer: 'CBC.CA/MILANOCORTINA2026'
       }
     ];
     promoItems.forEach((item) => {
@@ -1741,7 +1741,7 @@ function addNewResultFromDropdown() {
   let newItem = {
     type: hasGender ? 'StandingsAlt' : typeBase.charAt(0).toUpperCase() + typeBase.slice(1),
     title: `${optionText.split(' ')[0]}`,
-    footer: 'CBC.CA/PARIS2024'
+    footer: 'CBC.CA/MILANOCORTINA2026'
   };
 
   // Handle different types
@@ -2001,7 +2001,7 @@ function loadResultItems() {
         resultFlag4: '',
         resultName4: '',
         text: "",
-        footer: 'CBC.CA/PARIS2024'
+        footer: 'CBC.CA/MILANOCORTINA2026'
       },
       {
         type: 'Standings',
@@ -2039,7 +2039,7 @@ function loadResultItems() {
         resultFlag4: '',
         resultName4: '',
         text: "Pierce Lepage won Canada's First Medal of the Games",
-        footer: 'CBC.CA/PARIS2024'
+        footer: 'CBC.CA/MILANOCORTINA2026'
       },
       {
         type: 'Breaking',
@@ -2058,7 +2058,7 @@ function loadResultItems() {
         resultFlag4: '',
         resultName4: '',
         text: "Adam Tambellini scores a hat-trick in men's hockey",
-        footer: 'CBC.CA/PARIS2024'
+        footer: 'CBC.CA/MILANOCORTINA2026'
       }
     ];
     resultItems.forEach((item) => {
