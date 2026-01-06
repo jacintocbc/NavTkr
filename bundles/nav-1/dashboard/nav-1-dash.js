@@ -1241,22 +1241,22 @@ function addNewPromoFromDropdown() {
     case 'option2': // Picto
       newItem = {
         type: 'Picto',
-        img: '../shared/assets/pictos/P24_Picto_BlindFootball.png',
+        img: '../shared/assets/pictos/Ski Mountaineering-Picto.png',
         height: '196px',
         objectPosition: '-10px -2px',
-        title: 'New Picto',
-        subtitle: 'Event',
-        date: 'Date',
+        title: 'New Athlete',
+        subtitle: 'Ski Mountaineering',
+        date: 'Coming Up',
         footer: 'CBC.CA/MILANOCORTINA2026'
       };
       break;
     case 'option3': // Continue
       newItem = {
         type: 'Continue',
-        img: '../shared/assets/pictos/P24_Picto_ParaArchery.png',
+        img: '../shared/assets/pictos/Snowboard-Picto.png',
         height: '196px',
         objectPosition: '-10px -2px',
-        title: 'Sport',
+        title: 'Snowboarding',
         subtitle: 'Continue Watching On',
         date: 'Gem',
         footer: 'CBC.CA/MILANOCORTINA2026'
@@ -1474,20 +1474,20 @@ function loadPromoItems() {
       },
       {
         type: 'Picto',
-        img: '../shared/assets/pictos/P24_Picto_ParaArchery.png',
+        img: '../shared/assets/pictos/Ski Mountaineering-Picto.png',
         height: '196px',
         objectPosition: '-10px -2px',
         title: 'New Athlete',
-        subtitle: 'Para Archery',
+        subtitle: 'Ski Mountaineering',
         date: 'Coming Up',
         footer: 'CBC.CA/MILANOCORTINA2026'
       },
       {
         type: 'Continue',
-        img: '../shared/assets/pictos/P24_Picto_BlindFootball.png',
+        img: '../shared/assets/pictos/Snowboard-Picto.png',
         height: '196px',
         objectPosition: '-10px -2px',
-        title: 'Blind Football',
+        title: 'Snowboarding',
         subtitle: 'Continue Watching On',
         date: 'Gem',
         footer: 'CBC.CA/MILANOCORTINA2026'

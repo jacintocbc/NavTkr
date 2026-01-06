@@ -207,12 +207,12 @@ tr:last-child td {
     min-height: 196px;
 }
 
-.promo-image img[src*="P24_Picto"] {
+.promo-image img[src*="Picto"] {
     height: 196px;
-    background: linear-gradient(to bottom right, #ffebb4, #ffebb4 42%, #71eda3, #71eda3);
+    background: linear-gradient(to top right, #184e9c, #609df7);
 }
 
-.promo-image img[src$=".png"]:not([src*="P24_Picto"]) {
+.promo-image img[src$=".png"]:not([src*="Picto"]) {
     height: 196px;
     background: #e7e7e7;
     object-position: 60% 2px;

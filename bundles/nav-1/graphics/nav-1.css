@@ -347,7 +347,7 @@ body {
 }
 
 /* .promo-image[src$=".png"] {
-	background: linear-gradient(to bottom right, #ffebb4, #ffebb4 42%, #71eda3, #71eda3);
+	  background: linear-gradient(to top right, #184e9c, #609df7);
 } */
 
 .promo-image img {
@@ -378,11 +378,12 @@ body {
 
 .title-promo {
 	font-size: 28px;
-	word-spacing: -2px;
+	word-spacing: 0px;
 	letter-spacing: -0.2px;
 	opacity: 0;
 	transform: translateY(10px);
 	font-family: 'Radio Canada Big', sans-serif;
+	font-weight: 600;
 	/* animation: fadeInUpText 0.3s ease-in-out forwards 1.55s; */
 }
 
@@ -391,7 +392,8 @@ body {
 	top: -3px;
 	opacity: 0;
 	transform: translateY(10px);
-	font-family: 'Radio Canada Big', sans-serif;
+	font-size: 22px;
+	font-family: 'Radio Canada', sans-serif;
 	/* animation: fadeInUpText 0.3s ease-in-out forwards 1.65s; */
 }
 
@@ -408,6 +410,8 @@ body {
 	opacity: 0;
 	transform: translateY(10px);
 	font-family: 'Radio Canada Big', sans-serif;
+	font-weight: 600;
+	letter-spacing: 1px;
 	/* animation: fadeInUpText 0.3s ease-in-out forwards 1.75s; */
 }
 

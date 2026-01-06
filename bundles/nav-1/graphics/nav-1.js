@@ -301,20 +301,20 @@ let promoItems = [
   },
   {
     type: 'Picto',
-    img: '../shared/assets/pictos/basketball.png',
+    img: '../shared/assets/pictos/Ski Mountaineering-Picto.png',
     height: '196px',
     objectPosition: '-10px -2px',
-    title: 'Jamal Murray',
-    subtitle: 'Basketball',
+    title: 'New Athlete',
+    subtitle: 'Ski Mountaineering',
     date: 'Coming Up',
     footer: 'CBC.CA/MILANOCORTINA2026'
   },
   {
     type: 'Continue',
-    img: '../shared/assets/pictos/rowing.png',
+    img: '../shared/assets/pictos/Snowboard-Picto.png',
     height: '196px',
     objectPosition: '-10px -2px',
-    title: 'Rowing',
+    title: 'Snowboarding',
     subtitle: 'Continue Watching On',
     date: 'Gem',
     footer: 'CBC.CA/MILANOCORTINA2026'
@@ -342,7 +342,7 @@ function createPromoItem(item, index) {
   if (item.type == 'Athlete') {
     image.style.background = '#e7e7e7';
   } else {
-    image.style.background = 'linear-gradient(to bottom right, #ffebb4, #ffebb4 42%, #71eda3, #71eda3)';
+    image.style.background = 'linear-gradient(to top right, #184e9c, #609df7)';
   }
   imageContainer.appendChild(image);
   promoItem.appendChild(imageContainer);
