@@ -390,12 +390,12 @@ function createPromoItem(item, index) {
   textSpan.appendChild(date);
 
   // Footer
-  const footer = document.createElement('span');
-  footer.className = 'text footer-text footer-text-promo';
-  if (isContinue) footer.classList.add('footer-text-promo-continue');
-  footer.id = 'nav-footer-text';
-  footer.textContent = item.footer;
-  textSpan.appendChild(footer);
+  // const footer = document.createElement('span');
+  // footer.className = 'text footer-text footer-text-promo';
+  // if (isContinue) footer.classList.add('footer-text-promo-continue');
+  // footer.id = 'nav-footer-text';
+  // footer.textContent = item.footer;
+  // textSpan.appendChild(footer);
 
   textContainer.appendChild(textSpan);
   promoItem.appendChild(textContainer);
@@ -434,8 +434,8 @@ function animateInPromo() {
   const currentPromo = document.getElementById(`promo-${promoItemIndex}`);
   if (currentPromo) {
     currentPromo.style.display = 'flex';
-    const footer = currentPromo.querySelector('.footer-text-promo');
-    footer.style.animation = 'fadeInLeft .6s ease-out forwards .9s';
+    // const footer = currentPromo.querySelector('.footer-text-promo');
+    // footer.style.animation = 'fadeInLeft .6s ease-out forwards .9s';
     const promoImage = currentPromo.querySelector('.promo-image img');
     const title = currentPromo.querySelector('.title-promo');
     const subtitle = currentPromo.querySelector('.sub-title');
@@ -493,9 +493,9 @@ function transitionToNextPromo() {
     const promo = document.getElementById(`promo-${promoItemIndex}`);
     if (promo) {
       promo.style.display = 'flex';
-      const footer = promo.querySelector('.footer-text-promo');
-      footer.style.opacity = '1';
-      footer.style.transform = 'translateX(0)';
+      // const footer = promo.querySelector('.footer-text-promo');
+      // footer.style.opacity = '1';
+      // footer.style.transform = 'translateX(0)';
     }
   } else {
     // If we've displayed all promos, animate out

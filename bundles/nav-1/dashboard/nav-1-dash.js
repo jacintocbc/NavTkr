@@ -877,16 +877,16 @@ function addPromoTableRow(item, table, isAddedFromDropdown) {
   }
 
   // Footer
-  const footerText = document.createElement('span');
-  footerText.className = 'text footer-text footer-text-promo';
-  footerText.id = `nav-footer-text-${index + 1}`;
-  footerText.contentEditable = 'true';
-  footerText.textContent = item.footer;
+  // const footerText = document.createElement('span');
+  // footerText.className = 'text footer-text footer-text-promo';
+  // footerText.id = `nav-footer-text-${index + 1}`;
+  // footerText.contentEditable = 'true';
+  // footerText.textContent = item.footer;
 
   navTextPromo.appendChild(navTitle);
   navTextPromo.appendChild(subTitle);
   navTextPromo.appendChild(date);
-  navTextPromo.appendChild(footerText);
+  // navTextPromo.appendChild(footerText);
 
   navTextContainer.appendChild(navTextPromo);
   navContent.appendChild(promoImage);
@@ -1395,7 +1395,7 @@ function updatePromoItems() {
     const subtitleText = row.querySelector('.sub-title').textContent;
     let dateText;
     if (row.querySelector('.date').textContent) dateText = row.querySelector('.date').textContent;
-    const footerText = row.querySelector('.footer-text').textContent;
+    // const footerText = row.querySelector('.footer-text').textContent;
     const dropdown = row.querySelector('select');
     const dropdownValue = dropdown.value;
     const imageInputs = row.querySelectorAll('.img-input');
@@ -1408,7 +1408,7 @@ function updatePromoItems() {
       promoItems[index].subtitle = subtitleText;
       if (!dateText) dateText = 'Gem';
       promoItems[index].date = dateText;
-      promoItems[index].footer = footerText;
+      // promoItems[index].footer = footerText;
       if (dropdownValue) {
         if (promoItems[index].type === 'Athlete') {
           promoItems[index].img = `../shared/assets/athletes/${dropdownValue}`;

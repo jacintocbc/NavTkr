@@ -8,6 +8,16 @@
 	src: url('../shared/fonts/RadioCanada-Italic-Variable.ttf') format('truetype');
 }
 
+@font-face {
+	font-family: 'Radio Canada Big';
+	src: url('../shared/fonts/RadioCanadaBig-Variable.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Radio Canada Big Italic';
+	src: url('../shared/fonts/RadioCanadaBig-Italic-Variable.ttf') format('truetype');
+}
+
 body {
 	background: url('../shared/assets/mountain.jpg');
 	background-size: 170%;
@@ -372,6 +382,7 @@ body {
 	letter-spacing: -0.2px;
 	opacity: 0;
 	transform: translateY(10px);
+	font-family: 'Radio Canada Big', sans-serif;
 	/* animation: fadeInUpText 0.3s ease-in-out forwards 1.55s; */
 }
 
@@ -380,6 +391,7 @@ body {
 	top: -3px;
 	opacity: 0;
 	transform: translateY(10px);
+	font-family: 'Radio Canada Big', sans-serif;
 	/* animation: fadeInUpText 0.3s ease-in-out forwards 1.65s; */
 }
 
@@ -395,6 +407,7 @@ body {
 	left: 1px;
 	opacity: 0;
 	transform: translateY(10px);
+	font-family: 'Radio Canada Big', sans-serif;
 	/* animation: fadeInUpText 0.3s ease-in-out forwards 1.75s; */
 }
 
