@@ -920,6 +920,15 @@ function transitionToNextResult() {
         headerContainer.style.animation = '';
         headerContainer.style.transform = 'translateX(0)';
         headerContainer.style.opacity = '1';
+
+        const currentHeaderCorner = headerContainer.querySelector('.header-corner');
+        if (currentHeaderCorner) {
+          const nextHeaderCorner = nextResult ? nextResult.querySelector('.header-corner') : null;
+          if (!nextHeaderCorner) {
+            currentHeaderCorner.style.animation = 'fadeOut .2s ease-out forwards';
+          }
+        }
+
         const headerText = headerContainer.querySelector('.header-text');
         headerText.style.animation = 'imageFadeUpOut .2s ease-out forwards, imageFadeOut .2s ease-out forwards';
         if (nextResult && !nextResultRows || nextResultRows.length === 0) {
