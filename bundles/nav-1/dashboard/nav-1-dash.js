@@ -1241,7 +1241,7 @@ function addNewPromoFromDropdown() {
     case 'option2': // Picto
       newItem = {
         type: 'Picto',
-        img: '../shared/assets/pictos/Ski Mountaineering-Picto.png',
+        img: '../shared/assets/pictos/Ski-Mountaineering-Picto.png',
         height: '196px',
         objectPosition: '-10px -2px',
         title: 'New Athlete',
@@ -1474,7 +1474,7 @@ function loadPromoItems() {
       },
       {
         type: 'Picto',
-        img: '../shared/assets/pictos/Ski Mountaineering-Picto.png',
+        img: '../shared/assets/pictos/Ski-Mountaineering-Picto.png',
         height: '196px',
         objectPosition: '-10px -2px',
         title: 'New Athlete',

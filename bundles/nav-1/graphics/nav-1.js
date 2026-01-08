@@ -301,7 +301,7 @@ let promoItems = [
   },
   {
     type: 'Picto',
-    img: '../shared/assets/pictos/Ski Mountaineering-Picto.png',
+    img: '../shared/assets/pictos/Ski-Mountaineering-Picto.png',
     height: '196px',
     objectPosition: '-10px -2px',
     title: 'New Athlete',
