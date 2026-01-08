@@ -905,7 +905,18 @@ function transitionToNextResult() {
 
       // Header Related logic
       const headerContainer = currentResult.querySelector('.header-alt');
-      if (headerContainer.classList.contains('header-results') || headerContainer.classList.contains('header-breaking')) {
+
+      let isSameBackground = false;
+      if (nextResult) {
+        const nextHeaderInner = nextResult.querySelector('.header-alt');
+        if (nextHeaderInner) {
+          const currentType = headerContainer.classList.contains('header-results') ? 'results' : (headerContainer.classList.contains('header-breaking') ? 'breaking' : 'default');
+          const nextType = nextHeaderInner.classList.contains('header-results') ? 'results' : (nextHeaderInner.classList.contains('header-breaking') ? 'breaking' : 'default');
+          if (currentType === nextType) isSameBackground = true;
+        }
+      }
+
+      if (isSameBackground || headerContainer.classList.contains('header-results') || headerContainer.classList.contains('header-breaking')) {
         headerContainer.style.animation = '';
         headerContainer.style.transform = 'translateX(0)';
         headerContainer.style.opacity = '1';
@@ -914,7 +925,7 @@ function transitionToNextResult() {
         if (nextResult && !nextResultRows || nextResultRows.length === 0) {
           const nextHeaderContainer = nextResult.querySelector('.nav-header-alt');
           const style = window.getComputedStyle(headerContainer);
-          nextHeaderContainer.style.background = style.getPropertyValue('background-color');
+          nextHeaderContainer.style.background = style.getPropertyValue('background');
         }
       } else {
         headerContainer.style.animation = 'imageFadeUpOut .7s ease-out forwards, imageFadeOut .5s ease-out forwards';
