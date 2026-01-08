@@ -758,6 +758,23 @@ function createResultItem(item, index) {
 
   resultItem.appendChild(contentContainer);
 
+  // Measure height logic
+  const measureContainer = document.createElement('div');
+  measureContainer.style.width = '450px';
+  measureContainer.style.visibility = 'hidden';
+  measureContainer.style.position = 'absolute';
+  measureContainer.style.top = '-9999px';
+  document.body.appendChild(measureContainer);
+  
+  measureContainer.appendChild(resultItem);
+  const resultsTextEl = resultItem.querySelector('.results-text');
+  if (resultsTextEl && resultsTextEl.offsetHeight > 100) {
+    const footerToHide = resultItem.querySelector('.footer-text-results-2');
+    if (footerToHide) footerToHide.style.display = 'none';
+  }
+  measureContainer.removeChild(resultItem);
+  document.body.removeChild(measureContainer);
+
   return resultItem;
 }
 

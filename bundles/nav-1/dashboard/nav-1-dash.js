@@ -1695,6 +1695,24 @@ function addResultTableRow(item, table, isAddedFromDropdown) {
     table.appendChild(tr);
   }
 
+  // Check height for Results/Breaking
+  if (item.type === 'Results' || item.type === 'Breaking') {
+    const resText = tr.querySelector('.results-text');
+    const footerText = tr.querySelector('.footer-text');
+    if (resText && footerText) {
+      const checkHeight = () => {
+        if (resText.offsetHeight > 100) {
+          footerText.style.display = 'none';
+        } else {
+          footerText.style.display = '';
+        }
+      };
+      resText.addEventListener('input', checkHeight);
+      // Initial check after render
+      setTimeout(checkHeight, 0); 
+    }
+  }
+
   addResultDragAndDropHandlers(tr, table);
 
   // Update Flag from Input
