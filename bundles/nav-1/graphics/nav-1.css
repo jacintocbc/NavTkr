@@ -578,7 +578,7 @@ body {
 
 .result-squeeze {
 	font-size: 34px;
-    top: 7.5px;
+    top: 7.5px !important;
     letter-spacing: -1px;
 }
 
