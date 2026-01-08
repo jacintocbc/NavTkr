@@ -910,8 +910,8 @@ function transitionToNextResult() {
       if (nextResult) {
         const nextHeaderInner = nextResult.querySelector('.header-alt');
         if (nextHeaderInner) {
-          const currentType = headerContainer.classList.contains('header-results') ? 'results' : (headerContainer.classList.contains('header-breaking') ? 'breaking' : 'default');
-          const nextType = nextHeaderInner.classList.contains('header-results') ? 'results' : (nextHeaderInner.classList.contains('header-breaking') ? 'breaking' : 'default');
+          const currentType = headerContainer.classList.contains('header-breaking') ? 'breaking' : 'default';
+          const nextType = nextHeaderInner.classList.contains('header-breaking') ? 'breaking' : 'default';
           if (currentType === nextType) isSameBackground = true;
         }
       }
