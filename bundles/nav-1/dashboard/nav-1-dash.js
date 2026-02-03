@@ -407,19 +407,34 @@ function openTab(evt, tabName) {
   
   // If Results tab is opened, check heights
   if (tabName === 'Tab3') {
-    const table = document.getElementById('results-table');
-    if (table) {
-      const rows = table.querySelectorAll('tr');
-      rows.forEach(row => {
-        if (row.checkHeight) {
-          row.checkHeight();
-        }
-      });
-    }
+    setTimeout(() => {
+      const table = document.getElementById('results-table');
+      if (table) {
+        const rows = table.querySelectorAll('tr');
+        rows.forEach(row => {
+          if (row.checkHeight) {
+            row.checkHeight();
+          }
+        });
+      }
+    }, 100);
+  }
+
+  // If Navbar tab is opened, check heights
+  if (tabName === 'Tab1') {
+    setTimeout(() => {
+      const table = document.getElementById('navbar-table');
+      if (table) {
+        const rows = table.querySelectorAll('tr');
+        rows.forEach(row => {
+          if (row.checkHeight) {
+            row.checkHeight();
+          }
+        });
+      }
+    }, 100);
   }
 }
-
-document.getElementsByClassName('tablinks')[0].click();
 
 // Navbar Items --------------------------------------------------------------------
 
@@ -562,6 +577,24 @@ function addNavbarTableRow(item, table, isAddedFromDropdown) {
 
   td.appendChild(rowWrapper);
   tr.appendChild(td);
+
+  // Check height
+  const checkHeight = () => {
+    // Re-query elements scoped to this row
+    const currentTitleText = tr.querySelector('.nav-title .text');
+    const currentFooterText = tr.querySelector('.footer-text');
+    
+    if (currentTitleText && currentFooterText) {
+      if (currentTitleText.offsetHeight > 50) {
+        currentFooterText.style.display = 'none';
+      } else {
+        currentFooterText.style.display = '';
+      }
+    }
+  };
+  titleText.addEventListener('input', checkHeight); // titleText is the specific element created in this function scope
+  tr.checkHeight = checkHeight;
+  setTimeout(checkHeight, 0);
 
   addNavbarDragAndDropHandlers(tr, table);
 
@@ -2126,3 +2159,11 @@ function updateTimestampMessage(className) {
       console.warn(`Element with class '${className}' not found.`);
   }
 }
+
+// Initialize Dashboard (Open Default Tab after fonts/content are ready)
+document.fonts.ready.then(() => {
+  const tabLinks = document.getElementsByClassName('tablinks');
+  if (tabLinks.length > 0) {
+    tabLinks[0].click();
+  }
+});

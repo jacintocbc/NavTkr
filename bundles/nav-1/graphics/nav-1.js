@@ -141,6 +141,23 @@ function createNavbarItem(item, index) {
   footerContainer.appendChild(footerImage);
   navbarItem.appendChild(footerContainer);
 
+  // Measure height logic
+  const measureContainer = document.createElement('div');
+  measureContainer.style.width = '450px';
+  measureContainer.style.visibility = 'hidden';
+  measureContainer.style.position = 'absolute';
+  measureContainer.style.top = '-9999px';
+  document.body.appendChild(measureContainer);
+  
+  measureContainer.appendChild(navbarItem);
+  const titleTextEl = navbarItem.querySelector('.nav-title .text');
+  if (titleTextEl && titleTextEl.offsetHeight > 50) {
+     const footerToHide = navbarItem.querySelector('.footer-text');
+     if (footerToHide) footerToHide.style.display = 'none';
+  }
+  measureContainer.removeChild(navbarItem);
+  document.body.removeChild(measureContainer);
+
   return navbarItem;
 }
 
