@@ -1068,7 +1068,7 @@ function transitionToNextResult() {
         // If Next Result has footer, don't fade out
         if (nextResult) {
           const footerNext = nextResult.querySelector('.footer-text');
-          if (footerNext) {
+          if (footerNext && footer.style.display !== 'none') {
             footer.style.animation = '';
             footerNext.style.animation = '';
             footerNext.style.opacity = '1';
@@ -1180,6 +1180,12 @@ function transitionToNextResult() {
             });
           }
         }
+      }
+      
+      // Animate Footer In if not persisted
+      const footer = result.querySelector('.footer-text');
+      if (footer && footer.style.opacity !== '1') {
+         footer.style.animation = 'fadeInLeft .65s ease-out forwards .9s';
       }
     }
   } else {
