@@ -404,6 +404,19 @@ function openTab(evt, tabName) {
 
   document.getElementById(tabName).style.display = 'block';
   evt.currentTarget.className += ' active';
+  
+  // If Results tab is opened, check heights
+  if (tabName === 'Tab3') {
+    const table = document.getElementById('results-table');
+    if (table) {
+      const rows = table.querySelectorAll('tr');
+      rows.forEach(row => {
+        if (row.checkHeight) {
+          row.checkHeight();
+        }
+      });
+    }
+  }
 }
 
 document.getElementsByClassName('tablinks')[0].click();
@@ -1708,6 +1721,8 @@ function addResultTableRow(item, table, isAddedFromDropdown) {
         }
       };
       resText.addEventListener('input', checkHeight);
+      // Attach checkHeight to the element so we can call it later
+      tr.checkHeight = checkHeight;
       // Initial check after render
       setTimeout(checkHeight, 0); 
     }
