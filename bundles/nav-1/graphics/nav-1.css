@@ -19,9 +19,9 @@
 }
 
 body {
-	/* background: url('../shared/assets/mountain.jpg');
+	background: url('../shared/assets/mountain.jpg');
 	background-size: 170%;
-	background-position: 45% 23.45%; */
+	background-position: 45% 23.45%;
 	padding: 0;
 	margin: 0;
 	overflow: hidden;
