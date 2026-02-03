@@ -360,7 +360,7 @@ body {
 
 /* Text */
 .nav-text-container {
-	width: calc(100% - 180px);
+	width: 250px;
 	height: 196px;
 	position: absolute;
 	left: 180px;

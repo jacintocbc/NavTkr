@@ -998,6 +998,44 @@ function addPromoTableRow(item, table, isAddedFromDropdown) {
   const settings = document.createElement('div');
   settings.className = 'settings';
 
+  // Warning Icon
+  const warningIcon = document.createElement('i');
+  warningIcon.className = 'fa fa-exclamation-circle warning-icon';
+  warningIcon.style.display = 'none';
+  warningIcon.title = 'Text Overflow!';
+  warningIcon.style.color = 'red';
+  warningIcon.style.marginBottom = '10px';
+  warningIcon.style.cursor = 'default';
+
+  function checkOverflow() {
+    setTimeout(() => {
+      const titleRect = subTitle.getBoundingClientRect();
+      // Only check if element is visible
+      if (titleRect.width > 0) {
+        if (titleRect.width > 247) {
+          warningIcon.style.display = 'inline-block';
+        } else {
+          warningIcon.style.display = 'none';
+        }
+      }
+    }, 0);
+  }
+
+  // Check on input and keyup to catch backspaces/deletions reliably
+  subTitle.addEventListener('input', checkOverflow);
+  subTitle.addEventListener('keyup', checkOverflow);
+  
+  // Create IntersectionObserver to check when element becomes visible (e.g. tab switch)
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        checkOverflow();
+      }
+    });
+  }, { threshold: 0.1 });
+
+  observer.observe(navWrapper);
+
   // Delete
   const trashIcon = document.createElement('i');
   trashIcon.className = 'fa fa-trash-o';
@@ -1023,12 +1061,16 @@ function addPromoTableRow(item, table, isAddedFromDropdown) {
   if (item.squeeze === true || item.squeeze === false) squeezeIcon.className = item.squeeze ? 'fa fa-compress squeeze-icon' : 'fa fa-expand squeeze-icon';
   if (item.squeeze === true || item.squeeze === false) squeezeIcon.title = item.squeeze ? 'Click to Expand Title' : 'Click to Squeeze Title';
   squeezeIcon.style.cursor = 'pointer';
-  squeezeIcon.onclick = () => toggleFontSqueezePromo(squeezeIcon);
+  squeezeIcon.onclick = () => {
+    toggleFontSqueezePromo(squeezeIcon);
+    checkOverflow();
+  };
 
   // Drag and Drop
   const barsIcon = document.createElement('i');
   barsIcon.className = 'fa fa-bars';
 
+  settings.appendChild(warningIcon);
   settings.appendChild(trashIcon);
   settings.appendChild(visibilityIcon);
   if (item.squeeze === true || item.squeeze === false) settings.appendChild(squeezeIcon);
@@ -1046,6 +1088,7 @@ function addPromoTableRow(item, table, isAddedFromDropdown) {
 
   addPromoDragAndDropHandlers(tr, table);
   updatePromoRowIndices(table);
+  checkOverflow();
 }
 
 const imageClickHandler = function () {
