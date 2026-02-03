@@ -154,6 +154,8 @@ function createNavbarItem(item, index) {
   if (titleTextEl && titleTextEl.offsetHeight > 50) {
      const footerToHide = navbarItem.querySelector('.footer-text');
      if (footerToHide) footerToHide.style.display = 'none';
+     const navTitle = navbarItem.querySelector('.nav-title');
+     if (navTitle) navTitle.classList.add('squeeze');
   }
   measureContainer.removeChild(navbarItem);
   document.body.removeChild(measureContainer);

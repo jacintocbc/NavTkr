@@ -587,8 +587,10 @@ function addNavbarTableRow(item, table, isAddedFromDropdown) {
     if (currentTitleText && currentFooterText) {
       if (currentTitleText.offsetHeight > 50) {
         currentFooterText.style.display = 'none';
+        if (item.squeeze === false) toggleFontSqueeze(squeezeIcon);
       } else {
         currentFooterText.style.display = '';
+        if (item.squeeze === true) toggleFontSqueeze(squeezeIcon);
       }
     }
   };
