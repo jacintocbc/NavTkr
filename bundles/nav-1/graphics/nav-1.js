@@ -999,7 +999,7 @@ function transitionToNextResult() {
 
         const headerText = headerContainer.querySelector('.header-text');
         headerText.style.animation = 'imageFadeUpOut .2s ease-out forwards, imageFadeOut .2s ease-out forwards';
-        if (nextResult && !nextResultRows || nextResultRows.length === 0) {
+        if (nextResult) {
           const nextHeaderContainer = nextResult.querySelector('.nav-header-alt');
           const style = window.getComputedStyle(headerContainer);
           nextHeaderContainer.style.background = style.getPropertyValue('background');
@@ -1098,7 +1098,26 @@ function transitionToNextResult() {
 
       // Result Row related logic
       const resultRows = result.querySelectorAll('.result-row');
+
+      // Check for Header Wipe
+      const prevResult = document.getElementById(`result-${resultItemIndex - 1}`);
+      let shouldWipeHeader = false;
+      if (prevResult) {
+        const prevHeaderInner = prevResult.querySelector('.header-alt');
+        if (prevHeaderInner) {
+          const currentHeaderInner = result.querySelector('.header-alt');
+          const prevType = prevHeaderInner.classList.contains('header-breaking') ? 'breaking' : 'default';
+          const currentType = currentHeaderInner.classList.contains('header-breaking') ? 'breaking' : 'default';
+          if (prevType !== currentType) shouldWipeHeader = true;
+        }
+      }
+
       if (resultRows && resultRows.length > 0) {
+        if (shouldWipeHeader) {
+          const headerResults = result.querySelector('.header-alt');
+          headerResults.style.transform = 'translateX(100%)';
+          headerResults.style.animation = 'fadeRightToLeft .3s ease-out forwards .7s';
+        }
         // If previous rowNumber was 3, animate in 4th if exists
         if (rowNumber === 3) {
           let delay = 1;
