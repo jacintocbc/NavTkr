@@ -251,9 +251,16 @@ body {
 	/* animation: fadeInLeft .65s ease-out forwards 1.9s; */
 }
 
-.footer-squeeze {
-	top: .5px;
+.navbar-wrapper .footer-text {
+	position: absolute;
+	left: 16.5px;
+	bottom: 4px;
+	top: unset;
 }
+
+/* .footer-squeeze {
+	top: .5px;
+} */
 
 /* Footer Background */
 .footer {
