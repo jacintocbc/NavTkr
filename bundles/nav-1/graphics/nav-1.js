@@ -231,8 +231,28 @@ function animateInNavbar() {
 // Transition between navbar items
 function transitionToNextNavbar() {
   clearNavbarTimeouts();
-  // Hide Current Navbar
+
+  // Identify elements to check footer state
   const currentNavbar = document.getElementById(`navbar-${navbarItemIndex}`);
+  const nextNavbar = document.getElementById(`navbar-${navbarItemIndex + 1}`);
+
+  let currentHasFooter = false;
+  let nextHasFooter = false;
+
+  if (currentNavbar) {
+    const ft = currentNavbar.querySelector('.footer-text');
+    // Check if footer exists, is displayed, and has content
+    if (ft && ft.style.display !== 'none' && ft.textContent.trim() !== '') currentHasFooter = true;
+  }
+  
+  if (nextNavbar) {
+    const ft = nextNavbar.querySelector('.footer-text');
+    if (ft && ft.style.display !== 'none' && ft.textContent.trim() !== '') nextHasFooter = true;
+  }
+
+  const footerPersists = currentHasFooter && nextHasFooter;
+
+  // Hide Current Navbar
   if (currentNavbar) {
     // Extract the numerical part of the ID
     const currentNavbarIndex = parseInt(currentNavbar.id.replace('navbar-', ''), 10);
@@ -241,11 +261,22 @@ function transitionToNextNavbar() {
       const broadcastLogo = currentNavbar.querySelector('.broadcast-logo');
       const navbarTitle = currentNavbar.querySelector('.nav-title');
       const navbarTime = currentNavbar.querySelector('.nav-time');
+      const footerText = currentNavbar.querySelector('.footer-text');
+      
       navbarTitle.style.opacity = '1';
       navbarTime.style.opacity = '1';
+      if (footerText) footerText.style.opacity = '1';
+
       broadcastLogo.style.animation = 'fadeOutUpText .3s ease forwards';
       navbarTitle.style.animation = 'fadeOutUpText .2s ease forwards .05s';
       navbarTime.style.animation = 'fadeOutUpText .2s ease forwards .05s';
+      
+      // Only animate footer out if it doesn't persist to the next slide
+      if (footerText && !footerPersists) {
+        footerText.style.transform = 'translateX(0)';
+        footerText.style.animation = 'fadeOutUpText .2s ease forwards .05s';
+      }
+
       navbarOutTransitionId = setTimeout(() => {
         currentNavbar.style.display = 'none';
       }, 100);
@@ -260,10 +291,30 @@ function transitionToNextNavbar() {
     const navbar = document.getElementById(`navbar-${navbarItemIndex}`);
     if (navbar) {
       navbar.style.display = 'block';
+      
+      const broadcastLogo = navbar.querySelector('.broadcast-logo');
+      const navbarTitle = navbar.querySelector('.nav-title');
+      const navbarTime = navbar.querySelector('.nav-time');
       const footerText = navbar.querySelector('.footer-text');
-      footerText.style.opacity = '1';
-      footerText.style.transform = 'translateX(0)';
       const footerImage = navbar.querySelector('.footer img');
+
+      broadcastLogo.style.animation = 'fadeInLeftMore .5s ease-out forwards';
+      navbarTitle.style.animation = 'fadeInUpText .35s ease-in-out forwards .1s';
+      navbarTime.style.animation = 'fadeInUpText .35s ease-in-out forwards .2s';
+      
+      if (footerText) {
+        if (footerPersists) {
+          // If footer persists, stay visible with no animation (cut/swap)
+          footerText.style.opacity = '1';
+          footerText.style.animation = 'none';
+          footerText.style.transform = 'translateX(0)';
+        } else {
+          // If appearing fresh, animate in
+          footerText.style.opacity = '0';
+          footerText.style.animation = 'fadeInUpText .35s ease-in-out forwards .3s';
+        }
+      }
+
       footerImage.style.opacity = '1';
       footerImage.style.transform = 'translateX(0)';
     }
