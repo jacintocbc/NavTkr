@@ -1690,7 +1690,8 @@ function addResultTableRow(item, table, isAddedFromDropdown) {
         flagInput.className = 'flag-input';
         const inputField = document.createElement('input');
         inputField.type = 'text';
-        inputField.id = uniqueId;
+        inputField.id = `${uniqueId}_input`;
+        inputField.setAttribute('maxlength', '3');
         flagInput.appendChild(inputField);
         flagInputContainer.appendChild(flagInput);
 
@@ -1715,7 +1716,7 @@ function addResultTableRow(item, table, isAddedFromDropdown) {
 
   // Append flag inputs if they exist
   if (flagInputContainer.hasChildNodes()) {
-    navWrapper.appendChild(flagInputContainer);
+    rowWrapper.appendChild(flagInputContainer);
   }
 
   navWrapper.appendChild(resultWrapper);
@@ -1812,7 +1813,8 @@ function addResultTableRow(item, table, isAddedFromDropdown) {
   function updateFlag(input) {
     const code = input.value.toUpperCase();
     if (code.length === 3) {
-      const img = document.querySelector(`img#${input.id}`);
+      const uniqueId = input.id.replace('_input', '');
+      const img = document.getElementById(uniqueId);
       const imgPath = `../shared/assets/flags/${code}.jpg`;
 
       fetch(imgPath, { method: 'HEAD' })
