@@ -426,8 +426,17 @@ body {
 	font-size: 26px;
 }
 
+.squeeze-promo-title-2 {
+	font-size: 24px;
+	letter-spacing: -1px;
+}
+
 .squeeze-promo-text {
 	font-size: 23px;
+}
+
+.squeeze-promo-text-2 {
+	font-size: 21px;
 }
 
 @keyframes fadeInUpText {

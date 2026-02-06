@@ -888,15 +888,20 @@ function addPromoTableRow(item, table, isAddedFromDropdown) {
   navTextContainer.className = 'nav-text-container';
   const navTextPromo = document.createElement('span');
   navTextPromo.className = 'nav-text-promo';
-  if (item.squeeze === true || item.squeeze === false) { 
-    if (item.squeeze === true) navTextPromo.className = 'nav-text-promo squeeze-promo-text'; 
-  } 
+  if (item.squeeze === true) {
+    navTextPromo.className = 'nav-text-promo squeeze-promo-text';
+  } else if (item.squeeze === 2) {
+    navTextPromo.className = 'nav-text-promo squeeze-promo-text-2';
+  }
 
   // Title
   const navTitle = document.createElement('span');
   navTitle.className = 'nav-title title-promo';
-  if (item.squeeze === true || item.squeeze === false) { 
-    if (item.squeeze === true) navTitle.className = 'nav-title title-promo squeeze-promo-title'; 
+  
+  if (item.squeeze === true) {
+    navTitle.className = 'nav-title title-promo squeeze-promo-title';
+  } else if (item.squeeze === 2) {
+    navTitle.className = 'nav-title title-promo squeeze-promo-title-2';
   } 
   navTitle.contentEditable = 'true';
   navTitle.textContent = item.title;
@@ -1060,8 +1065,18 @@ function addPromoTableRow(item, table, isAddedFromDropdown) {
 
   // Squeeze Font
   const squeezeIcon = document.createElement('i');
-  if (item.squeeze === true || item.squeeze === false) squeezeIcon.className = item.squeeze ? 'fa fa-compress squeeze-icon' : 'fa fa-expand squeeze-icon';
-  if (item.squeeze === true || item.squeeze === false) squeezeIcon.title = item.squeeze ? 'Click to Expand Title' : 'Click to Squeeze Title';
+  if (item.squeeze === true || item.squeeze === false || item.squeeze === 2) {
+    if (item.squeeze === true) {
+      squeezeIcon.className = 'fa fa-compress squeeze-icon';
+      squeezeIcon.title = 'Click to Squeeze Title More';
+    } else if (item.squeeze === 2) {
+      squeezeIcon.className = 'fa fa-compress squeeze-icon';
+      squeezeIcon.title = 'Click to Expand Title';
+    } else {
+      squeezeIcon.className = 'fa fa-expand squeeze-icon';
+      squeezeIcon.title = 'Click to Squeeze Title';
+    }
+  }
   squeezeIcon.style.cursor = 'pointer';
   squeezeIcon.onclick = () => {
     toggleFontSqueezePromo(squeezeIcon);
@@ -1075,7 +1090,7 @@ function addPromoTableRow(item, table, isAddedFromDropdown) {
   settings.appendChild(warningIcon);
   settings.appendChild(trashIcon);
   settings.appendChild(visibilityIcon);
-  if (item.squeeze === true || item.squeeze === false) settings.appendChild(squeezeIcon);
+  if (item.squeeze === true || item.squeeze === false || item.squeeze === 2) settings.appendChild(squeezeIcon);
   settings.appendChild(barsIcon);
 
   rowWrapper.appendChild(settings);
@@ -1403,24 +1418,28 @@ function toggleFontSqueezePromo(icon) {
   const navTextPromo = navWrapper.querySelector('.nav-text-promo');
   const item = promoItems[index]; 
  
-  if (item.squeeze === true || item.squeeze === false) { 
-    item.squeeze = !item.squeeze; 
-    if (!item.squeeze) { 
-      icon.classList.remove('fa-compress'); 
-      icon.classList.add('fa-expand'); 
-      icon.title = 'Click to Squeeze Title'; 
-      navTitle.className = 'nav-title title-promo'; 
-      navTextPromo.className = 'nav-text-promo';
-      item.squeeze = false; 
-    } else { 
-      icon.classList.remove('fa-expand'); 
-      icon.classList.add('fa-compress'); 
-      icon.title = 'Click to Expand Title'; 
-      navTitle.className = 'nav-title title-promo squeeze-promo-title';
-      navTextPromo.className = 'nav-text-promo squeeze-promo-text';
-      item.squeeze = true; 
-    }
-  } 
+  if (item.squeeze === undefined || item.squeeze === false) { 
+    item.squeeze = true;
+    icon.classList.remove('fa-expand'); 
+    icon.classList.add('fa-compress'); 
+    icon.title = 'Click to Squeeze Title More'; 
+    navTitle.className = 'nav-title title-promo squeeze-promo-title'; 
+    navTextPromo.className = 'nav-text-promo squeeze-promo-text'; 
+  } else if (item.squeeze === true) {
+    item.squeeze = 2;
+    icon.classList.remove('fa-expand'); 
+    icon.classList.add('fa-compress'); 
+    icon.title = 'Click to Expand Title'; 
+    navTitle.className = 'nav-title title-promo squeeze-promo-title-2'; 
+    navTextPromo.className = 'nav-text-promo squeeze-promo-text-2'; 
+  } else if (item.squeeze === 2) {
+    item.squeeze = false;
+    icon.classList.remove('fa-compress'); 
+    icon.classList.add('fa-expand'); 
+    icon.title = 'Click to Squeeze Title'; 
+    navTitle.className = 'nav-title title-promo'; 
+    navTextPromo.className = 'nav-text-promo'; 
+  }
 }
 
 // Add Drag and Drop Handlers

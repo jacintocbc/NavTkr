@@ -422,16 +422,23 @@ function createPromoItem(item, index) {
   textContainer.className = 'nav-text-container';
   const textSpan = document.createElement('span');
   textSpan.className = 'nav-text-promo';
-  if (item.squeeze === true || item.squeeze === false) { 
-    if (item.squeeze === true) textSpan.className = 'nav-text-promo squeeze-promo-text'; 
+  
+  if (item.squeeze === true) {
+    textSpan.className = 'nav-text-promo squeeze-promo-text';
+  } else if (item.squeeze === 2) {
+    textSpan.className = 'nav-text-promo squeeze-promo-text-2';
   }
 
   // Title
   const title = document.createElement('span');
   title.className = 'nav-title title-promo';
-  if (item.squeeze === true || item.squeeze === false) { 
-    if (item.squeeze === true) title.className = 'nav-title title-promo squeeze-promo-title'; 
-  } 
+  
+  if (item.squeeze === true) {
+    title.className = 'nav-title title-promo squeeze-promo-title'; 
+  } else if (item.squeeze === 2) {
+     title.className = 'nav-title title-promo squeeze-promo-title-2';
+  }
+  
   title.textContent = item.title;
   textSpan.appendChild(title);
 
