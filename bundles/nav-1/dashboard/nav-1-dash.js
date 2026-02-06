@@ -752,7 +752,7 @@ function addNavbarDragAndDropHandlers(row, table) {
 function updateNavbarItems() {
   const rows = document.querySelectorAll('#navbar-table tr');
   rows.forEach((row, index) => {
-    const titleText = row.querySelector('.nav-title .text').textContent;
+    const titleText = row.querySelector('.nav-title .text').innerText;
     const time1Text = row.querySelector('.nav-time .time-1').textContent;
     const time2Text = row.querySelector('.nav-time .time-2').textContent;
     const time3Text = row.querySelector('.nav-time .time-3').textContent;
@@ -1501,8 +1501,8 @@ function addPromoDragAndDropHandlers(row, table) {
 function updatePromoItems() {
   const rows = document.querySelectorAll('#promo-table tr');
   rows.forEach((row, index) => {
-    const titleText = row.querySelector('.nav-title').textContent;
-    const subtitleText = row.querySelector('.sub-title').textContent;
+    const titleText = row.querySelector('.nav-title').innerText;
+    const subtitleText = row.querySelector('.sub-title').innerText;
     let dateText;
     if (row.querySelector('.date').textContent) dateText = row.querySelector('.date').textContent;
     // const footerText = row.querySelector('.footer-text').textContent;

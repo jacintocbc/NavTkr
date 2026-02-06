@@ -180,6 +180,7 @@ tr:last-child td {
 
 .nav-title {
     opacity: 1;
+    white-space: pre-wrap;
 }
 
 .nav-time {
@@ -236,7 +237,7 @@ tr:last-child td {
 .sub-title {
     opacity: 1;
     transform: translateY(0);
-    white-space: nowrap;
+    white-space: pre-wrap;
 }
 
 .date {

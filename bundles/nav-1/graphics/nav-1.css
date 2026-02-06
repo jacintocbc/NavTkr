@@ -218,6 +218,7 @@ body {
 	position: relative;
 	top: 0;
 	left: 7px;
+	white-space: pre-wrap;
 }
 
 .more-left-margin {
@@ -391,6 +392,7 @@ body {
 	transform: translateY(10px);
 	font-family: 'Radio Canada Big', sans-serif;
 	font-weight: 600;
+	white-space: pre-wrap;
 	/* animation: fadeInUpText 0.3s ease-in-out forwards 1.55s; */
 }
 
@@ -401,6 +403,7 @@ body {
 	transform: translateY(10px);
 	font-size: 22px;
 	font-family: 'Radio Canada', sans-serif;
+	white-space: pre-wrap;
 	/* animation: fadeInUpText 0.3s ease-in-out forwards 1.65s; */
 }
 
