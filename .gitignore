@@ -1,5 +1,4 @@
 node_modules/
-db/
 db/nodecg.sqlite3
 db/nodecg.sqlite3-shm
 db/nodecg.sqlite3-wal

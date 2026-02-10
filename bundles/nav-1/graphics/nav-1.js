@@ -1312,6 +1312,9 @@ console.log('instanceId', instanceId);
 
 document.addEventListener('DOMContentLoaded', function () {
   document.title = `Navbar - ${instanceId}`;
+  if (instanceId === 'PREVIEW') {
+    document.body.style.background = 'blue';
+  }
 });
 
 // Play Audio In
